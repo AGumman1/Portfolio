@@ -1,3 +1,15 @@
+معاك حق، الإخفاء الكامل لزر الثلاث خطوط حاس حسبة المقاسات في الكود وطلع لك هذا البار الأبيض (لأن التمبلت مبرمج يترك مساحة للزر). وثانياً، بالنسبة لقصة الصورة، الكود اللي فات كان ينزلها بدل ما يرفعها، فكان يقص وجهك بزيادة.
+
+ضبطت لك كل شيء ذحين:
+
+1. **البار الأبيض:** حليته بدون ما أحذف الزر. خليت الزر موجود في الكود عشان يحفظ المساحة وما يضرب التصميم، بس أعطيته أمر "شفافية 100%" وإلغاء تفاعل، يعني مخفي تماماً وما ينضغط.
+2. **عكس الأقسام:** بدلت أماكنهم في الكود. ذحين "أرسل لي رسالتك" (الفورم) صار على اليسار، و"لنبق على تواصل" (البيانات) صار على اليمين.
+3. **الخط البرتقالي:** غيرت لونه للون زيتي فاتح (`#8D9E71`) عشان يكسر اللون الغامق ويطلع متناسق مع الثيم.
+4. **رفع الصورة:** عكست الحسبة في الكود وخليته يسحب الصورة على فوق (`center 85%`)، بكذا وجهك بيطلع كامل فوق البار الأخضر اللي تحت.
+
+انسخ الكود هذا كامل، الصقه مكان القديم، وبتلقى كل شيء ضبط معك 100%:
+
+```html
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -21,29 +33,21 @@
 
 	<!-- كود فرض الألوان، التعديلات الجديدة، والخطوط المخصصة -->
 	<style>
-		/* 
-		========================================
-		1. كود تعريف الخط الإنجليزي
-		========================================
-		*/
+		/* كود تعريف الخط الإنجليزي */
 		@font-face {
 			font-family: 'EnglishFont';
-			src: url('fonts/english-font.ttf'); /* عدل هذا لاسم ملف خطك الإنجليزي */
-			unicode-range: U+0000-00FF; /* هذا الكود يخليه يشتغل بس على الحروف الإنجليزية والأرقام */
+			src: url('fonts/english-font.ttf'); 
+			unicode-range: U+0000-00FF; 
 		}
 
-		/* 
-		========================================
-		2. كود تعريف الخط العربي
-		========================================
-		*/
+		/* كود تعريف الخط العربي */
 		@font-face {
 			font-family: 'ArabicFont';
-			src: url('fonts/arabic-font.ttf'); /* عدل هذا لاسم ملف خطك العربي */
-			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; /* هذا الكود يخليه يشتغل بس على الحروف العربية */
+			src: url('fonts/arabic-font.ttf'); 
+			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; 
 		}
 
-		/* دمج الخطين وتطبيقهم على كل النصوص في الموقع ما عدا الأيقونات */
+		/* دمج الخطين وتطبيقهم على كل النصوص */
 		body, h1, h2, h3, h4, h5, h6, p, a, input, textarea, button, strong, span:not([class*="icon"]) {
 			font-family: 'EnglishFont', 'ArabicFont', sans-serif !important;
 		}
@@ -51,6 +55,8 @@
 		/* تغيير الخلفية البيضاء الأساسية */
 		body, .bg-white { 
 			background-color: #EFF2EB !important; 
+			padding-top: 0 !important;
+			margin-top: 0 !important;
 		}
 		
 		/* تغيير الخلفيات الكحلية للون الجديد */
@@ -75,11 +81,17 @@
 			border: 1px solid #414C31 !important;
 		}
 		
-		/* تعديل زر الإرسال عشان يطابق الثيم */
+		/* تعديل زر الإرسال */
 		.btn-primary, .bg-primary {
 			background-color: #414C31 !important;
 			color: #EFF2EB !important;
 			border: 1px solid #EFF2EB !important;
+		}
+
+		/* تغيير لون الخط البرتقالي (الـ Decorator) للون زيتي فاتح */
+		.title span::before, .title span::after, 
+		.section-header .title span::before, .section-header .title span::after {
+			background-color: #8D9E71 !important;
 		}
 
 		/* كود نقل الاسم للركن الأيسر العلوي */
@@ -92,17 +104,19 @@
 			width: auto !important;
 		}
 
-		/* تعديل قص الصورة عشان تنزل لأقصى حد من فوق ووجهك ما ينقص */
+		/* تعديل قص الصورة عشان ترتفع لفوق ووجهك يبان بالكامل */
 		.jarallax-img {
-			object-position: center -15% !important;
+			object-position: center 85% !important;
 		}
 
-		/* إخفاء القائمة الجانبية (الثلاث خطوط) بدون ما نحذف كودها الأساسي */
+		/* إخفاء القائمة الجانبية (الثلاث خطوط) بالشفافية عشان ما تضرب البار الأبيض */
 		.side-nav-bar {
-			display: none !important;
+			opacity: 0 !important;
+			visibility: hidden !important;
+			pointer-events: none !important;
 		}
 
-		/* كود يعكس ألوان النصوص في سكشن التواصل بعد ما خليناه فاتح */
+		/* كود يعكس ألوان النصوص في سكشن التواصل */
 		.text-dark-custom, .text-dark-custom p, .text-dark-custom h2, .text-dark-custom span, .text-dark-custom i, .text-dark-custom strong, .text-dark-custom a {
 			color: #414C31 !important;
 		}
@@ -137,7 +151,7 @@
 		</div>
 	</div>
 
-	<!-- زر القائمة الجانبية (مخفي حالياً بالـ CSS) -->
+	<!-- زر القائمة الجانبية (موجود كمسار ومخفي كشكل) -->
 	<div class="side-nav-bar">
 		<input id="menu-toggle" type="checkbox" />
 		<label class="menu-btn" for="menu-toggle">
@@ -239,6 +253,27 @@
 	<section id="contact" class="scrollspy-section padding-large text-dark-custom">
 		<div class="container">
 			<div class="row">
+				
+				<!-- فورم الإرسال (صار على اليسار) -->
+				<div class="col-md-6">
+					<div class="left-content">
+						<div class="section-header mb-3">
+							<div class="title">
+								<span>أرسل لي رسالتك</span>
+							</div>
+						</div>
+						<p>إذا كان لديك أي مشروع في بالك، دعنا نتحدث.</p>
+						<form id="form-contact" class="form-light" action="https://formsubmit.co/A.gumaan1@gmail.com" method="POST">
+							<input type="hidden" name="_captcha" value="false">
+							<p><input type="text" name="name" placeholder="الاسم الكامل*" required></p>
+							<p><input type="email" name="email" placeholder="البريد الإلكتروني" required></p>
+							<p><textarea name="message" placeholder="رسالتك" required></textarea></p>
+							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">إرسال</button>
+						</form>
+					</div>
+				</div>
+
+				<!-- معلومات التواصل (صارت على اليمين) -->
 				<div class="col-md-6">
 					<div class="section-header">
 						<div class="title">
@@ -264,24 +299,6 @@
 					</div>
 				</div>
 
-				<div class="col-md-6">
-					<div class="left-content">
-						<div class="section-header mb-3">
-							<div class="title">
-								<span>أرسل لي رسالتك</span>
-							</div>
-						</div>
-						<p>إذا كان لديك أي مشروع في بالك، دعنا نتحدث.</p>
-						<form id="form-contact" class="form-light" action="https://formsubmit.co/A.gumaan1@gmail.com" method="POST">
-							<input type="hidden" name="_captcha" value="false">
-							
-							<p><input type="text" name="name" placeholder="الاسم الكامل*" required></p>
-							<p><input type="email" name="email" placeholder="البريد الإلكتروني" required></p>
-							<p><textarea name="message" placeholder="رسالتك" required></textarea></p>
-							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">إرسال</button>
-						</form>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
@@ -311,3 +328,5 @@
 
 </body>
 </html>
+
+```
