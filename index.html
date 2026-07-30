@@ -19,23 +19,33 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-	<!-- كود فرض الألوان، التعديلات الجديدة، والخط المخصص -->
+	<!-- كود فرض الألوان، التعديلات الجديدة، والخطوط المخصصة -->
 	<style>
 		/* 
 		========================================
-		1. كود تعريف الخط حقك
-		لازم تسوي مجلد في جيت هب باسم fonts
-		وترفع ملف الخط فيه، وتغير كلمة font-name.ttf لاسم ملفك بالضبط
+		1. كود تعريف الخط الإنجليزي
 		========================================
 		*/
 		@font-face {
-			font-family: 'MyCustomFont';
-			src: url('fonts/font-name.ttf'); 
+			font-family: 'EnglishFont';
+			src: url('fonts/english-font.ttf'); /* عدل هذا لاسم ملف خطك الإنجليزي */
+			unicode-range: U+0000-00FF; /* هذا الكود يخليه يشتغل بس على الحروف الإنجليزية والأرقام */
 		}
 
-		/* تطبيق خطك على كل النصوص في الموقع ما عدا الأيقونات */
+		/* 
+		========================================
+		2. كود تعريف الخط العربي
+		========================================
+		*/
+		@font-face {
+			font-family: 'ArabicFont';
+			src: url('fonts/arabic-font.ttf'); /* عدل هذا لاسم ملف خطك العربي */
+			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; /* هذا الكود يخليه يشتغل بس على الحروف العربية */
+		}
+
+		/* دمج الخطين وتطبيقهم على كل النصوص في الموقع ما عدا الأيقونات */
 		body, h1, h2, h3, h4, h5, h6, p, a, input, textarea, button, strong, span:not([class*="icon"]) {
-			font-family: 'MyCustomFont', sans-serif !important;
+			font-family: 'EnglishFont', 'ArabicFont', sans-serif !important;
 		}
 
 		/* تغيير الخلفية البيضاء الأساسية */
@@ -82,13 +92,7 @@
 			width: auto !important;
 		}
 
-		/* 
-		========================================
-		2. كود رفع الصورة وتعديل القص
-		رفعتها لك بمقدار -15%
-		لو شفت الرفع جا معاكس للي تبغاه، شيل السالب وخليها 15% بس
-		========================================
-		*/
+		/* تعديل قص الصورة عشان تنزل لأقصى حد من فوق ووجهك ما ينقص */
 		.jarallax-img {
 			object-position: center -15% !important;
 		}
