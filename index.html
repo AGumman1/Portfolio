@@ -11,7 +11,7 @@
 	
 	<link rel="icon" href="images/favicon.png">
 
-	<!-- خط تجوال من جوجل كبديل مؤقت -->
+	<!-- خط تجوال من جوجل كبديل مؤقت عشان ما يخرب شكل الموقع -->
 	<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
@@ -52,12 +52,6 @@
 			border: 1px solid #EFF2EB !important;
 		}
 
-		/* الخط الأخضر الزيتي الفاتح */
-		.title span::before, .title span::after, 
-		.section-header .title span::before, .section-header .title span::after {
-			background-color: #8D9E71 !important;
-		}
-
 		/* مكان الاسم */
 		.banner-content {
 			position: absolute !important;
@@ -68,9 +62,9 @@
 			width: auto !important;
 		}
 
-		/* حل مشكلة قص الصورة وتنزيلها */
+		/* رفع الصورة لأقصى حد عشان يلامس الشعر بداية الصفحة */
 		.jarallax-img {
-			object-position: top center !important;
+			object-position: center 0% !important;
 		}
 
 		/* إخفاء زر القائمة بشكل كامل */
@@ -78,7 +72,60 @@
 			display: none !important;
 		}
 
-		/* ألوان سكشن التواصل */
+		/* =======================================
+		   إعدادات سكشن التواصل باللغة العربية (RTL) 
+		   ======================================= */
+		.rtl-layout {
+			direction: rtl !important;
+			text-align: right !important;
+		}
+		
+		/* ترتيب الأيقونات عشان تصير على اليمين */
+		.rtl-layout .iconbox {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+		
+		.rtl-layout .iconbox i {
+			margin-left: 20px; /* مسافة بين الأيقونة والنص */
+			margin-right: 0 !important;
+			font-size: 2.2rem;
+			color: #8D9E71 !important; /* لون الأيقونات الزيتي الفاتح */
+		}
+		
+		/* ترتيب العناوين والخط الزيتي الفاتح */
+		.rtl-layout .title {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+		
+		.rtl-layout .title span::before {
+			display: none !important; /* إخفاء الخط اللي على اليسار */
+		}
+		
+		.rtl-layout .title span::after {
+			content: '';
+			display: inline-block;
+			width: 35px;
+			height: 2px;
+			background-color: #8D9E71 !important; /* الخط الزيتي الفاتح على اليمين */
+			margin-right: 15px;
+		}
+		
+		/* إجبار الكتابة في الخانات تبدأ من اليمين */
+		.rtl-layout input, .rtl-layout textarea {
+			text-align: right !important;
+			direction: rtl !important;
+		}
+		
+		/* تصغير العناوين الضخمة في هذا السكشن بس */
+		.rtl-layout .section-title {
+			font-size: 2.5rem !important; 
+			margin-top: 10px;
+		}
+
 		.text-dark-custom, .text-dark-custom p, .text-dark-custom h2, .text-dark-custom span, .text-dark-custom i, .text-dark-custom strong, .text-dark-custom a {
 			color: #414C31 !important;
 		}
@@ -179,18 +226,47 @@
 		</div>
 	</section>
 
-	<section id="contact" class="scrollspy-section padding-large text-dark-custom">
+	<!-- أضفنا كلاس rtl-layout عشان يعكس كل شيء في هذا السكشن -->
+	<section id="contact" class="scrollspy-section padding-large text-dark-custom rtl-layout">
 		<div class="container">
 			<div class="row">
 				
+				<!-- معلومات التواصل (على اليمين) -->
+				<div class="col-md-6 mb-5 mb-md-0">
+					<div class="section-header mb-4">
+						<div class="title">
+							<span>لنبقَ على تواصل</span>
+						</div>
+						<h2 class="section-title">تواصل معي</h2>
+					</div>
+					<div class="mt-5">
+						<div class="iconbox mb-4">
+							<i class="icon icon-phone"></i>
+							<div>
+								<strong class="d-block mb-1">Phone:</strong>
+								<!-- حطينا dir="ltr" للرقم بس عشان علامة الزائد ما تلخبط -->
+								<p class="m-0" dir="ltr" style="text-align: right;">+966 583382614</p>
+							</div>
+						</div>
+						<div class="iconbox">
+							<i class="icon icon-mail3"></i>
+							<div>
+								<strong class="d-block mb-1">Email:</strong>
+								<p class="m-0"><a href="mailto:A.gumaan1@gmail.com">A.gumaan1@gmail.com</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- فورم الإرسال (على اليسار) -->
 				<div class="col-md-6">
-					<div class="left-content">
+					<div>
 						<div class="section-header mb-3">
 							<div class="title">
 								<span>أرسل لي رسالتك</span>
 							</div>
 						</div>
-						<p>إذا كان لديك أي مشروع في بالك، دعنا نتحدث.</p>
+						<p class="mb-4">إذا كان لديك أي مشروع في بالك، دعنا نتحدث.</p>
 						<form id="form-contact" class="form-light" action="https://formsubmit.co/A.gumaan1@gmail.com" method="POST">
 							<input type="hidden" name="_captcha" value="false">
 							<p><input type="text" name="name" placeholder="الاسم الكامل*" required></p>
@@ -198,31 +274,6 @@
 							<p><textarea name="message" placeholder="رسالتك" required></textarea></p>
 							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">إرسال</button>
 						</form>
-					</div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="section-header">
-						<div class="title">
-							<span>لنبقَ على تواصل</span>
-						</div>
-						<h2 class="section-title">تواصل معي</h2>
-					</div>
-					<div class="mt-5">
-						<div class="iconbox">
-							<i class="icon icon-phone"></i>
-							<div>
-								<strong>Phone:</strong>
-								<p>+966583382614</p>
-							</div>
-						</div>
-						<div class="iconbox">
-							<i class="icon icon-mail3"></i>
-							<div>
-								<strong>Email:</strong>
-								<p><a href="mailto:A.gumaan1@gmail.com">A.gumaan1@gmail.com</a></p>
-							</div>
-						</div>
 					</div>
 				</div>
 
