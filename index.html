@@ -12,9 +12,6 @@
 	<!-- رابط الأيقونة، ارفع صورتك بصيغة png وسميها favicon.png وحطها في مجلد images -->
 	<link rel="icon" href="images/favicon.png">
 
-	<!-- استدعاء خط تجوال من جوجل فونتس -->
-	<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,11 +19,23 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-	<!-- كود فرض الألوان، التعديلات الجديدة، والخط -->
+	<!-- كود فرض الألوان، التعديلات الجديدة، والخط المخصص -->
 	<style>
-		/* تطبيق الخط على كل النصوص في الموقع ما عدا الأيقونات */
+		/* 
+		========================================
+		1. كود تعريف الخط حقك
+		لازم تسوي مجلد في جيت هب باسم fonts
+		وترفع ملف الخط فيه، وتغير كلمة font-name.ttf لاسم ملفك بالضبط
+		========================================
+		*/
+		@font-face {
+			font-family: 'MyCustomFont';
+			src: url('fonts/font-name.ttf'); 
+		}
+
+		/* تطبيق خطك على كل النصوص في الموقع ما عدا الأيقونات */
 		body, h1, h2, h3, h4, h5, h6, p, a, input, textarea, button, strong, span:not([class*="icon"]) {
-			font-family: 'Tajawal', sans-serif !important;
+			font-family: 'MyCustomFont', sans-serif !important;
 		}
 
 		/* تغيير الخلفية البيضاء الأساسية */
@@ -73,9 +82,20 @@
 			width: auto !important;
 		}
 
-		/* تعديل قص الصورة عشان تبان نازلة أكثر بنسبة 10% */
+		/* 
+		========================================
+		2. كود رفع الصورة وتعديل القص
+		رفعتها لك بمقدار -15%
+		لو شفت الرفع جا معاكس للي تبغاه، شيل السالب وخليها 15% بس
+		========================================
+		*/
 		.jarallax-img {
-			object-position: center 10% !important;
+			object-position: center -15% !important;
+		}
+
+		/* إخفاء القائمة الجانبية (الثلاث خطوط) بدون ما نحذف كودها الأساسي */
+		.side-nav-bar {
+			display: none !important;
 		}
 
 		/* كود يعكس ألوان النصوص في سكشن التواصل بعد ما خليناه فاتح */
@@ -113,7 +133,7 @@
 		</div>
 	</div>
 
-	<!-- زر القائمة الجانبية -->
+	<!-- زر القائمة الجانبية (مخفي حالياً بالـ CSS) -->
 	<div class="side-nav-bar">
 		<input id="menu-toggle" type="checkbox" />
 		<label class="menu-btn" for="menu-toggle">
@@ -262,7 +282,7 @@
 		</div>
 	</section>
 
-	<!-- الفوتر المعدل والمنظف -->
+	<!-- الفوتر -->
 	<footer id="footer" class="bg-secondary" style="padding: 60px 0 30px 0;">
 		<div class="container">
 			<div class="row text-center">
