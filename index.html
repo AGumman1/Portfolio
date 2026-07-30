@@ -1,3 +1,10 @@
+غلطتي في الكود اللي راح، حطيت نقطة الارتكاز فوق (`0%`)، وهذا اللي ضغط الصورة لتحت وخلى وجهك ينزل.
+
+الآن عكست الحسبة في الكود وخليت الارتكاز من أسفل الصورة (`center bottom`). هذا الأمر بيسحب الصورة بالكامل لفوق، وبيرفع وجهك وشعرك لأعلى نقطة ممكنة في الشاشة بدون ما يخرب تأثير النزول (Parallax).
+
+انسخ الكود كامل والصقه، والمشكلة هذي بتنتهي فوراً:
+
+```html
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -62,9 +69,9 @@
 			width: auto !important;
 		}
 
-		/* رفع الصورة لأقصى حد عشان يلامس الشعر بداية الصفحة */
+		/* التعديل الجديد: رفع الصورة لفوق لأقصى حد ممكن */
 		.jarallax-img {
-			object-position: center 0% !important;
+			object-position: center bottom !important;
 		}
 
 		/* إخفاء زر القائمة بشكل كامل */
@@ -88,10 +95,10 @@
 		}
 		
 		.rtl-layout .iconbox i {
-			margin-left: 20px; /* مسافة بين الأيقونة والنص */
+			margin-left: 20px; 
 			margin-right: 0 !important;
 			font-size: 2.2rem;
-			color: #8D9E71 !important; /* لون الأيقونات الزيتي الفاتح */
+			color: #8D9E71 !important; 
 		}
 		
 		/* ترتيب العناوين والخط الزيتي الفاتح */
@@ -102,7 +109,7 @@
 		}
 		
 		.rtl-layout .title span::before {
-			display: none !important; /* إخفاء الخط اللي على اليسار */
+			display: none !important; 
 		}
 		
 		.rtl-layout .title span::after {
@@ -110,7 +117,7 @@
 			display: inline-block;
 			width: 35px;
 			height: 2px;
-			background-color: #8D9E71 !important; /* الخط الزيتي الفاتح على اليمين */
+			background-color: #8D9E71 !important; 
 			margin-right: 15px;
 		}
 		
@@ -226,12 +233,10 @@
 		</div>
 	</section>
 
-	<!-- أضفنا كلاس rtl-layout عشان يعكس كل شيء في هذا السكشن -->
 	<section id="contact" class="scrollspy-section padding-large text-dark-custom rtl-layout">
 		<div class="container">
 			<div class="row">
 				
-				<!-- معلومات التواصل (على اليمين) -->
 				<div class="col-md-6 mb-5 mb-md-0">
 					<div class="section-header mb-4">
 						<div class="title">
@@ -244,7 +249,6 @@
 							<i class="icon icon-phone"></i>
 							<div>
 								<strong class="d-block mb-1">Phone:</strong>
-								<!-- حطينا dir="ltr" للرقم بس عشان علامة الزائد ما تلخبط -->
 								<p class="m-0" dir="ltr" style="text-align: right;">+966 583382614</p>
 							</div>
 						</div>
@@ -258,7 +262,6 @@
 					</div>
 				</div>
 
-				<!-- فورم الإرسال (على اليسار) -->
 				<div class="col-md-6">
 					<div>
 						<div class="section-header mb-3">
@@ -305,3 +308,5 @@
 
 </body>
 </html>
+
+```
