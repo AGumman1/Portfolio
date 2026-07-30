@@ -22,7 +22,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-	<!-- كود فرض الألوان الجديدة -->
+	<!-- كود فرض الألوان والتعديلات الجديدة -->
 	<style>
 		/* تغيير الخلفية البيضاء الأساسية */
 		body, .bg-white { 
@@ -35,11 +35,11 @@
 		}
 		
 		/* تغيير أي نص أو عنصر أبيض للون الجديد */
-		.text-white, .light, .nav__block-item, .footer-menu h3, .footer-menu p, .copyright p, .iconbox i, .iconbox strong { 
+		.text-white, .light, .nav__block-item, .footer-menu h3, .footer-menu p, .copyright p { 
 			color: #EFF2EB !important; 
 		}
 
-		/* تعديل ألوان الروابط */
+		/* تعديل ألوان الروابط الكحلية */
 		.nav__list-item a, .menu-list a, a.text-white {
 			color: #EFF2EB !important;
 		}
@@ -56,6 +56,26 @@
 			background-color: #414C31 !important;
 			color: #EFF2EB !important;
 			border: 1px solid #EFF2EB !important;
+		}
+
+		/* كود نقل الاسم للركن الأيسر العلوي */
+		.banner-content {
+			position: absolute !important;
+			top: 15% !important;
+			left: 5% !important;
+			transform: none !important;
+			text-align: left !important;
+			width: auto !important;
+		}
+
+		/* كود تعديل قص الصورة عشان يركز على الجزء العلوي والوجه */
+		.jarallax-img {
+			object-position: top center !important;
+		}
+
+		/* كود يعكس ألوان النصوص في سكشن التواصل بعد ما خليناه فاتح */
+		.text-dark-custom, .text-dark-custom p, .text-dark-custom h2, .text-dark-custom span, .text-dark-custom i, .text-dark-custom strong, .text-dark-custom a {
+			color: #414C31 !important;
 		}
 	</style>
 </head>
@@ -187,29 +207,29 @@
 	</section>
 
 	<!-- سكشن Contact Me -->
-	<section id="contact" class="scrollspy-section bg-secondary padding-large">
+	<section id="contact" class="scrollspy-section padding-large text-dark-custom"> <!-- شلنا الكحلي وحطينا كلاس يعكس الألوان -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="section-header">
 						<div class="title">
-							<span class="text-white">Get in touch</span>
+							<span>لنبقَ على تواصل</span>
 						</div>
-						<h2 class="section-title light">Contact me</h2>
+						<h2 class="section-title">تواصل معي</h2>
 					</div>
-					<div class="text-white mt-5">
+					<div class="mt-5">
 						<div class="iconbox">
-							<i class="icon icon-phone text-white-50"></i>
+							<i class="icon icon-phone"></i>
 							<div>
-								<strong class="text-white">Phone:</strong>
+								<strong>Phone:</strong>
 								<p>+966583382614</p>
 							</div>
 						</div>
 						<div class="iconbox">
-							<i class="icon icon-mail3 text-white-50"></i>
+							<i class="icon icon-mail3"></i>
 							<div>
-								<strong class="text-white">Email:</strong>
-								<p><a href="mailto:A.gumaan1@gmail.com" class="text-white">A.gumaan1@gmail.com</a></p>
+								<strong>Email:</strong>
+								<p><a href="mailto:A.gumaan1@gmail.com">A.gumaan1@gmail.com</a></p>
 							</div>
 						</div>
 					</div>
@@ -219,18 +239,17 @@
 					<div class="left-content">
 						<div class="section-header mb-3">
 							<div class="title">
-								<span class="text-white">Send me a message</span>
+								<span>أرسل لي رسالتك</span>
 							</div>
 						</div>
-						<p>If you have any project in mind, let's talk.</p>
+						<p>إذا كان لديك أي مشروع في بالك، دعنا نتحدث.</p>
 						<form id="form-contact" class="form-light" action="https://formsubmit.co/A.gumaan1@gmail.com" method="POST">
-							<!-- تمنع صفحة الكابتشا المزعجة بعد ما يرسل العميل -->
 							<input type="hidden" name="_captcha" value="false">
 							
-							<p><input type="text" name="name" placeholder="Your Full Name*" required></p>
-							<p><input type="email" name="email" placeholder="Your Email Address" required></p>
-							<p><textarea name="message" placeholder="Your Message" required></textarea></p>
-							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">Submit</button>
+							<p><input type="text" name="name" placeholder="الاسم الكامل*" required></p>
+							<p><input type="email" name="email" placeholder="البريد الإلكتروني" required></p>
+							<p><textarea name="message" placeholder="رسالتك" required></textarea></p>
+							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">إرسال</button>
 						</form>
 					</div>
 				</div>
@@ -242,20 +261,11 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<!-- مسحنا العمود المكرر وخلينا هذا في النص -->
+				<div class="col-md-12 text-center">
 					<div class="footer-menu menu-item-01">
 						<h3 class="text-white">AlZubair</h3>
-						<p>Professional Filmmaker & Video Editor.</p>
-					</div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="footer-menu menu-item-03">
-						<h5>contact info</h5>
-						<ul class="menu-list">
-							<li class="menu-item"><i class="icon icon-phone"></i>+966583382614</li>
-							<li class="menu-item"><i class="icon icon-envelope-o"></i><a href="mailto:A.gumaan1@gmail.com" class="mail-id">A.gumaan1@gmail.com</a></li>
-						</ul>
+						<p>Professional Filmmaker & 3D Artist.</p>
 					</div>
 				</div>
 			</div>
