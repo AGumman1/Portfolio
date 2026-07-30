@@ -11,7 +11,6 @@
 	
 	<link rel="icon" href="images/favicon.png">
 
-	<!-- خط تجوال من جوجل كبديل مؤقت عشان ما يخرب شكل الموقع -->
 	<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
@@ -59,13 +58,55 @@
 			width: auto !important;
 		}
 
-		/* وزنة الصورة الجديدة: رفعناها 20% زيادة */
 		.jarallax-img {
 			object-position: center 25% !important;
 		}
 
 		.side-nav-bar {
 			display: none !important;
+		}
+
+		/* تنسيق نافذة تكبير الصورة (Lightbox) */
+		#imageModal {
+			display: none;
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(65, 76, 49, 0.95);
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		#imageModal img {
+			max-width: 90%;
+			max-height: 90%;
+			object-fit: contain;
+			border-radius: 6px;
+			box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+		}
+
+		#closeModal {
+			position: absolute;
+			top: 20px;
+			right: 35px;
+			color: #EFF2EB;
+			font-size: 45px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		/* إضافة مؤشر الفأرة للصورة عشان الملتفت يعرف إنها قابل للضغط */
+		#portfolio img {
+			cursor: pointer;
+			transition: transform 0.2s ease;
+		}
+
+		#portfolio img:hover {
+			transform: scale(1.02);
 		}
 
 		.rtl-layout {
@@ -124,6 +165,12 @@
 <body>
 
 	<div class="preloader"></div>
+
+	<!-- نافذة عرض الصورة بالحجم الكامل -->
+	<div id="imageModal">
+		<span id="closeModal">&times;</span>
+		<img id="modalImg" src="" alt="Full Resolution">
+	</div>
 
 	<div class="nav nav-overlay">
 		<div class="nav__content">
@@ -286,6 +333,21 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
+
+	<!-- سكربت تفاعل تكبير الصور -->
+	<script>
+		$(document).ready(function() {
+			$('#portfolio img').on('click', function() {
+				var src = $(this).attr('src');
+				$('#modalImg').attr('src', src);
+				$('#imageModal').css('display', 'flex');
+			});
+
+			$('#imageModal, #closeModal').on('click', function() {
+				$('#imageModal').css('display', 'none');
+			});
+		});
+	</script>
 
 </body>
 </html>
