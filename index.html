@@ -36,15 +36,14 @@
 						<ul class="nav__list d-none d-md-block">
 							<li class="nav__list-item active-nav"><a href="#intro" class="hover-target">Home</a></li>
 							<li class="nav__list-item"><a href="#portfolio" class="hover-target">Portfolio</a></li>
-							<li class="nav__list-item"><a href="#about" class="hover-target">About Me</a></li>
 							<li class="nav__list-item"><a href="#contact" class="hover-target">Contact me</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 text-white">
 						<h3 class="text-white fw-bold nav__block-item">Contact info</h3>
 						<ul class="list-unstyled text-light nav__block-item">
-							<li class="menu-item"><i class="icon icon-phone me-2"></i>+966 5X XXX XXXX</li>
-							<li class="menu-item"><i class="icon icon-envelope-o me-2"></i><a href="mailto:your-email@example.com" class="text-white">your-email@example.com</a></li>
+							<li class="menu-item"><i class="icon icon-phone me-2"></i>+966583382614</li>
+							<li class="menu-item"><i class="icon icon-envelope-o me-2"></i><a href="mailto:A.gumaan1@gmail.com" class="text-white">A.gumaan1@gmail.com</a></li>
 						</ul>
 					</div>
 				</div>
@@ -150,29 +149,6 @@
 		</div>
 	</section>
 
-	<!-- سكشن About Me -->
-	<section id="about" class="scrollspy-section padding-xlarge">
-		<div class="container">
-			<div class="row flex-row-reverse">
-				<div class="col-md-6">
-					<figure class="jarallax-keep-img">
-						<img src="images/about-me.jpg" alt="about me" class="jarallax-img single-image img-fluid">
-					</figure>
-				</div>
-				<div class="col-md-6 description text-lead">
-					<div class="section-header">
-						<div class="title">
-							<span>who am i</span>
-						</div>
-						<h2 class="section-title">About Me</h2>
-					</div>
-					<p><strong>اكتب نبذة قوية عنك هنا، سطرين أو ثلاثة تلخص مجالك وإبداعك.</strong></p>
-					<p>وهنا تقدر تفصل أكثر في خبراتك والبرامج اللي تشتغل عليها، أو أي تفاصيل إضافية تحب العميل يقرأها.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- سكشن Contact Me -->
 	<section id="contact" class="scrollspy-section bg-secondary padding-large">
 		<div class="container">
@@ -189,14 +165,14 @@
 							<i class="icon icon-phone text-white-50"></i>
 							<div>
 								<strong class="text-white">Phone:</strong>
-								<p>+966 5X XXX XXXX</p>
+								<p>+966583382614</p>
 							</div>
 						</div>
 						<div class="iconbox">
 							<i class="icon icon-mail3 text-white-50"></i>
 							<div>
 								<strong class="text-white">Email:</strong>
-								<p><a href="mailto:your-email@example.com" class="text-white">your-email@example.com</a></p>
+								<p><a href="mailto:A.gumaan1@gmail.com" class="text-white">A.gumaan1@gmail.com</a></p>
 							</div>
 						</div>
 					</div>
@@ -210,11 +186,15 @@
 							</div>
 						</div>
 						<p>If you have any project in mind, let's talk.</p>
-						<form id="form-contact" class="form-light" action="#">
+						<form id="form-contact" class="form-light" action="https://formsubmit.co/A.gumaan1@gmail.com" method="POST">
+							<!-- هذي تمنع صفحة الكابتشا المزعجة بعد ما يرسل العميل -->
+							<input type="hidden" name="_captcha" value="false">
+							
 							<p><input type="text" name="name" placeholder="Your Full Name*" required></p>
-							<p><input type="text" name="email" placeholder="Your Email Address" required></p>
+							<!-- غيرت التايب لإيميل عشان المتصفح يتأكد إن العميل كاتب إيميل صحيح -->
+							<p><input type="email" name="email" placeholder="Your Email Address" required></p>
 							<p><textarea name="message" placeholder="Your Message" required></textarea></p>
-							<button class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">Submit</button>
+							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">Submit</button>
 						</form>
 					</div>
 				</div>
@@ -237,8 +217,8 @@
 					<div class="footer-menu menu-item-03">
 						<h5>contact info</h5>
 						<ul class="menu-list">
-							<li class="menu-item"><i class="icon icon-phone"></i>+966 5X XXX XXXX</li>
-							<li class="menu-item"><i class="icon icon-envelope-o"></i><a href="mailto:your-email@example.com" class="mail-id">your-email@example.com</a></li>
+							<li class="menu-item"><i class="icon icon-phone"></i>+966583382614</li>
+							<li class="menu-item"><i class="icon icon-envelope-o"></i><a href="mailto:A.gumaan1@gmail.com" class="mail-id">A.gumaan1@gmail.com</a></li>
 						</ul>
 					</div>
 				</div>
