@@ -21,6 +21,43 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+	<!-- كود فرض الألوان الجديدة -->
+	<style>
+		/* تغيير الخلفية البيضاء الأساسية */
+		body, .bg-white { 
+			background-color: #EFF2EB !important; 
+		}
+		
+		/* تغيير الخلفيات الكحلية للون الجديد */
+		.bg-secondary, #footer, #footer-bottom, .nav-overlay, .preloader { 
+			background-color: #414C31 !important; 
+		}
+		
+		/* تغيير أي نص أو عنصر أبيض للون الجديد */
+		.text-white, .light, .nav__block-item, .footer-menu h3, .footer-menu p, .copyright p, .iconbox i, .iconbox strong { 
+			color: #EFF2EB !important; 
+		}
+
+		/* تعديل ألوان الروابط */
+		.nav__list-item a, .menu-list a, a.text-white {
+			color: #EFF2EB !important;
+		}
+
+		/* تعديل خلفية خانات التواصل */
+		form.form-light input, form.form-light textarea {
+			background-color: #EFF2EB !important;
+			color: #414C31 !important;
+			border: 1px solid #414C31 !important;
+		}
+		
+		/* تعديل زر الإرسال عشان يطابق الثيم */
+		.btn-primary, .bg-primary {
+			background-color: #414C31 !important;
+			color: #EFF2EB !important;
+			border: 1px solid #EFF2EB !important;
+		}
+	</style>
 </head>
 
 <body>
@@ -187,11 +224,10 @@
 						</div>
 						<p>If you have any project in mind, let's talk.</p>
 						<form id="form-contact" class="form-light" action="https://formsubmit.co/A.gumaan1@gmail.com" method="POST">
-							<!-- هذي تمنع صفحة الكابتشا المزعجة بعد ما يرسل العميل -->
+							<!-- تمنع صفحة الكابتشا المزعجة بعد ما يرسل العميل -->
 							<input type="hidden" name="_captcha" value="false">
 							
 							<p><input type="text" name="name" placeholder="Your Full Name*" required></p>
-							<!-- غيرت التايب لإيميل عشان المتصفح يتأكد إن العميل كاتب إيميل صحيح -->
 							<p><input type="email" name="email" placeholder="Your Email Address" required></p>
 							<p><textarea name="message" placeholder="Your Message" required></textarea></p>
 							<button type="submit" class="btn btn-accent bg-primary btn-rounded btn-xlarge btn-full">Submit</button>
