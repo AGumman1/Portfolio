@@ -1,15 +1,3 @@
-معاك حق، الإخفاء الكامل لزر الثلاث خطوط حاس حسبة المقاسات في الكود وطلع لك هذا البار الأبيض (لأن التمبلت مبرمج يترك مساحة للزر). وثانياً، بالنسبة لقصة الصورة، الكود اللي فات كان ينزلها بدل ما يرفعها، فكان يقص وجهك بزيادة.
-
-ضبطت لك كل شيء ذحين:
-
-1. **البار الأبيض:** حليته بدون ما أحذف الزر. خليت الزر موجود في الكود عشان يحفظ المساحة وما يضرب التصميم، بس أعطيته أمر "شفافية 100%" وإلغاء تفاعل، يعني مخفي تماماً وما ينضغط.
-2. **عكس الأقسام:** بدلت أماكنهم في الكود. ذحين "أرسل لي رسالتك" (الفورم) صار على اليسار، و"لنبق على تواصل" (البيانات) صار على اليمين.
-3. **الخط البرتقالي:** غيرت لونه للون زيتي فاتح (`#8D9E71`) عشان يكسر اللون الغامق ويطلع متناسق مع الثيم.
-4. **رفع الصورة:** عكست الحسبة في الكود وخليته يسحب الصورة على فوق (`center 85%`)، بكذا وجهك بيطلع كامل فوق البار الأخضر اللي تحت.
-
-انسخ الكود هذا كامل، الصقه مكان القديم، وبتلقى كل شيء ضبط معك 100%:
-
-```html
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -21,8 +9,10 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	
-	<!-- رابط الأيقونة، ارفع صورتك بصيغة png وسميها favicon.png وحطها في مجلد images -->
 	<link rel="icon" href="images/favicon.png">
+
+	<!-- خط تجوال من جوجل كبديل مؤقت -->
+	<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
@@ -31,70 +21,44 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-	<!-- كود فرض الألوان، التعديلات الجديدة، والخطوط المخصصة -->
 	<style>
-		/* كود تعريف الخط الإنجليزي */
-		@font-face {
-			font-family: 'EnglishFont';
-			src: url('fonts/english-font.ttf'); 
-			unicode-range: U+0000-00FF; 
-		}
-
-		/* كود تعريف الخط العربي */
-		@font-face {
-			font-family: 'ArabicFont';
-			src: url('fonts/arabic-font.ttf'); 
-			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; 
-		}
-
-		/* دمج الخطين وتطبيقهم على كل النصوص */
+		/* تطبيق الخط */
 		body, h1, h2, h3, h4, h5, h6, p, a, input, textarea, button, strong, span:not([class*="icon"]) {
-			font-family: 'EnglishFont', 'ArabicFont', sans-serif !important;
+			font-family: 'Tajawal', sans-serif !important;
 		}
 
-		/* تغيير الخلفية البيضاء الأساسية */
+		/* الألوان والخلفيات */
 		body, .bg-white { 
 			background-color: #EFF2EB !important; 
-			padding-top: 0 !important;
-			margin-top: 0 !important;
 		}
 		
-		/* تغيير الخلفيات الكحلية للون الجديد */
 		.bg-secondary, .nav-overlay, .preloader { 
 			background-color: #414C31 !important; 
 		}
 		
-		/* تغيير أي نص أو عنصر أبيض للون الجديد */
-		.text-white, .light, .nav__block-item { 
+		.text-white, .light, .nav__block-item, .nav__list-item a, .menu-list a, a.text-white { 
 			color: #EFF2EB !important; 
 		}
 
-		/* تعديل ألوان الروابط الكحلية */
-		.nav__list-item a, .menu-list a, a.text-white {
-			color: #EFF2EB !important;
-		}
-
-		/* تعديل خلفية خانات التواصل */
 		form.form-light input, form.form-light textarea {
 			background-color: #EFF2EB !important;
 			color: #414C31 !important;
 			border: 1px solid #414C31 !important;
 		}
 		
-		/* تعديل زر الإرسال */
 		.btn-primary, .bg-primary {
 			background-color: #414C31 !important;
 			color: #EFF2EB !important;
 			border: 1px solid #EFF2EB !important;
 		}
 
-		/* تغيير لون الخط البرتقالي (الـ Decorator) للون زيتي فاتح */
+		/* الخط الأخضر الزيتي الفاتح */
 		.title span::before, .title span::after, 
 		.section-header .title span::before, .section-header .title span::after {
 			background-color: #8D9E71 !important;
 		}
 
-		/* كود نقل الاسم للركن الأيسر العلوي */
+		/* مكان الاسم */
 		.banner-content {
 			position: absolute !important;
 			top: 15% !important;
@@ -104,19 +68,17 @@
 			width: auto !important;
 		}
 
-		/* تعديل قص الصورة عشان ترتفع لفوق ووجهك يبان بالكامل */
+		/* حل مشكلة قص الصورة وتنزيلها */
 		.jarallax-img {
-			object-position: center 85% !important;
+			object-position: top center !important;
 		}
 
-		/* إخفاء القائمة الجانبية (الثلاث خطوط) بالشفافية عشان ما تضرب البار الأبيض */
+		/* إخفاء زر القائمة بشكل كامل */
 		.side-nav-bar {
-			opacity: 0 !important;
-			visibility: hidden !important;
-			pointer-events: none !important;
+			display: none !important;
 		}
 
-		/* كود يعكس ألوان النصوص في سكشن التواصل */
+		/* ألوان سكشن التواصل */
 		.text-dark-custom, .text-dark-custom p, .text-dark-custom h2, .text-dark-custom span, .text-dark-custom i, .text-dark-custom strong, .text-dark-custom a {
 			color: #414C31 !important;
 		}
@@ -127,7 +89,6 @@
 
 	<div class="preloader"></div>
 
-	<!-- القائمة الجانبية المخفية -->
 	<div class="nav nav-overlay">
 		<div class="nav__content">
 			<div class="container">
@@ -151,7 +112,7 @@
 		</div>
 	</div>
 
-	<!-- زر القائمة الجانبية (موجود كمسار ومخفي كشكل) -->
+	<!-- الزر مخفي بالـ CSS -->
 	<div class="side-nav-bar">
 		<input id="menu-toggle" type="checkbox" />
 		<label class="menu-btn" for="menu-toggle">
@@ -159,7 +120,6 @@
 		</label>
 	</div>
 
-	<!-- سكشن الواجهة -->
 	<section id="intro" class="scrollspy-section">
 		<div class="main-slider">
 			<div class="slider-item jarallax" data-speed="0.2">
@@ -172,7 +132,6 @@
 		</div>
 	</section>
 
-	<!-- سكشن البورتفوليو -->
 	<section id="portfolio" class="scrollspy-section bg-secondary padding-large">
 		<div class="container">
 			<div class="row">
@@ -186,48 +145,20 @@
 				</div>
 			</div>
 
-			<!-- قسم المقاطع -->
 			<h3 class="text-white mb-4">Videos</h3>
 			<div class="grid p-0 clearfix row row-cols-1 row-cols-lg-2 row-cols-xl-2 mb-5" data-aos="fade-up">
-				
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/SUzb5kllZYA?si=MenYwfxtvB6MTTfy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/2X4ltbVoMg4?si=PDFo1oLNEE9BIN0u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/5Q-4Ee7urZA?si=6_wppnCBStiOmfn6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/LRQKaOAt1tQ?si=nEAi2owoTJOgZ5oc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/S84V2BOaZDE?si=c2qCCL5-LbQLBxjl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/RHHINvm8kC4?si=QNGYbl6FjluYNjtT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/1-xUBY-g1bg?si=5RyOsDrTnFuWtsA9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
-				<div class="col mb-4 portfolio-item">
-					<iframe width="100%" height="315" src="https://www.youtube.com/embed/CF2cPa27qRA?si=5IMq6kAgN3eHpjYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/SUzb5kllZYA?si=MenYwfxtvB6MTTfy" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/2X4ltbVoMg4?si=PDFo1oLNEE9BIN0u" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/5Q-4Ee7urZA?si=6_wppnCBStiOmfn6" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/LRQKaOAt1tQ?si=nEAi2owoTJOgZ5oc" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/S84V2BOaZDE?si=c2qCCL5-LbQLBxjl" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/RHHINvm8kC4?si=QNGYbl6FjluYNjtT" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/1-xUBY-g1bg?si=5RyOsDrTnFuWtsA9" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/CF2cPa27qRA?si=5IMq6kAgN3eHpjYG" frameborder="0" allowfullscreen></iframe></div>
 			</div>
 
-			<!-- قسم الصور -->
 			<h3 class="text-white mb-4 mt-5">Images</h3>
 			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3" data-aos="fade-up">
-				
 				<div class="col mb-4 portfolio-item"><img src="images/port1.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port2.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port3.jpg" class="img-fluid" alt="portfolio"></div>
@@ -244,17 +175,14 @@
 				<div class="col mb-4 portfolio-item"><img src="images/port14.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port15.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port16.jpg" class="img-fluid" alt="portfolio"></div>
-
 			</div>
 		</div>
 	</section>
 
-	<!-- سكشن Contact Me -->
 	<section id="contact" class="scrollspy-section padding-large text-dark-custom">
 		<div class="container">
 			<div class="row">
 				
-				<!-- فورم الإرسال (صار على اليسار) -->
 				<div class="col-md-6">
 					<div class="left-content">
 						<div class="section-header mb-3">
@@ -273,7 +201,6 @@
 					</div>
 				</div>
 
-				<!-- معلومات التواصل (صارت على اليمين) -->
 				<div class="col-md-6">
 					<div class="section-header">
 						<div class="title">
@@ -303,7 +230,6 @@
 		</div>
 	</section>
 
-	<!-- الفوتر -->
 	<footer id="footer" class="bg-secondary" style="padding: 60px 0 30px 0;">
 		<div class="container">
 			<div class="row text-center">
@@ -328,5 +254,3 @@
 
 </body>
 </html>
-
-```
