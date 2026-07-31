@@ -19,21 +19,18 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<style>
-		/* تعريف الخط الإنجليزي بصيغة OTF */
 		@font-face {
 			font-family: 'EnglishFont';
 			src: url('fonts/english-font.otf') format('opentype');
 			unicode-range: U+0000-00FF; 
 		}
 
-		/* تعريف الخط العربي بصيغة OTF */
 		@font-face {
 			font-family: 'ArabicFont';
 			src: url('fonts/arabic-font.otf') format('opentype');
 			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; 
 		}
 
-		/* تطبيق الخطوط على الموقع كامل */
 		body, h1, h2, h3, h4, h5, h6, p, a, input, textarea, button, strong, span:not([class*="icon"]) {
 			font-family: 'EnglishFont', 'ArabicFont', sans-serif !important;
 		}
@@ -79,7 +76,6 @@
 			display: none !important;
 		}
 
-		/* تنسيق نافذة تكبير الصورة (Lightbox) */
 		#imageModal {
 			display: none;
 			position: fixed;
@@ -89,17 +85,20 @@
 			width: 100%;
 			height: 100%;
 			background-color: rgba(65, 76, 49, 0.95);
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			cursor: pointer;
+			padding: 20px;
 		}
 
 		#imageModal img {
-			max-width: 90%;
-			max-height: 90%;
+			max-width: 85%;
+			max-height: 85vh;
 			object-fit: contain;
 			border-radius: 6px;
 			box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+			cursor: default;
 		}
 
 		#closeModal {
@@ -250,8 +249,9 @@
 				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/CF2cPa27qRA?si=5IMq6kAgN3eHpjYG" frameborder="0" allowfullscreen></iframe></div>
 			</div>
 
-			<h3 class="text-white mb-4 mt-5">Images</h3>
-			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3" data-aos="fade-up">
+			<!-- قسم التصوير الفوتوغرافي -->
+			<h3 class="text-white mb-4 mt-5">Photography</h3>
+			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3 mb-5" data-aos="fade-up">
 				<div class="col mb-4 portfolio-item"><img src="images/port1.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port2.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port3.jpg" class="img-fluid" alt="portfolio"></div>
@@ -260,6 +260,11 @@
 				<div class="col mb-4 portfolio-item"><img src="images/port6.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port7.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port8.jpg" class="img-fluid" alt="portfolio"></div>
+			</div>
+
+			<!-- قسم أعمال الـ 3D -->
+			<h3 class="text-white mb-4 mt-5">3D Work</h3>
+			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3" data-aos="fade-up">
 				<div class="col mb-4 portfolio-item"><img src="images/port9.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port10.jpg" class="img-fluid" alt="portfolio"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/port11.jpg" class="img-fluid" alt="portfolio"></div>
@@ -353,8 +358,10 @@
 				$('#imageModal').css('display', 'flex');
 			});
 
-			$('#imageModal, #closeModal').on('click', function() {
-				$('#imageModal').css('display', 'none');
+			$('#imageModal, #closeModal').on('click', function(e) {
+				if (e.target.id === 'imageModal' || e.target.id === 'closeModal') {
+					$('#imageModal').css('display', 'none');
+				}
 			});
 		});
 	</script>
