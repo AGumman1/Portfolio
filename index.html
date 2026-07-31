@@ -22,14 +22,14 @@
 		@font-face {
 			font-family: 'EnglishFont';
 			src: url('fonts/english-font.otf') format('opentype');
-			font-display: swap; /* ميزة تسرع ظهور الخط */
+			font-display: swap; 
 			unicode-range: U+0000-00FF; 
 		}
 
 		@font-face {
 			font-family: 'ArabicFont';
 			src: url('fonts/arabic-font.otf') format('opentype');
-			font-display: swap; /* ميزة تسرع ظهور الخط */
+			font-display: swap; 
 			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; 
 		}
 
@@ -70,8 +70,16 @@
 			width: auto !important;
 		}
 
+		/* إعدادات الصورة للبي سي */
 		.jarallax-img {
 			object-position: center 25% !important;
+		}
+
+		/* إعدادات الصورة للجوال فقط (تدف الصورة يسار) */
+		@media (max-width: 767px) {
+			.jarallax-img {
+				object-position: 30% 25% !important; 
+			}
 		}
 
 		.side-nav-bar {
@@ -227,7 +235,8 @@
 				<img src="images/my-profile.jpg" alt="AlZubair" class="jarallax-img" loading="lazy">
 				<div class="banner-content text-white">
 					<h2 class="banner-title txt-fx">AlZubair</h2>
-					<p class="fs-4 d-none d-lg-block">Abdulrahman Zubair</p>
+					<!-- شلت كلاس d-none عشان يطلع الاسم بالجوال -->
+					<p class="fs-4">Abdulrahman Zubair</p>
 				</div>
 			</div>
 		</div>
@@ -249,7 +258,6 @@
 			<!-- 1. قسم التصوير الفوتوغرافي (Photography) -->
 			<h3 class="text-white mb-4">Photography</h3>
 			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3 mb-5" data-aos="fade-up">
-				<!-- أضفنا loading="lazy" لكل الصور -->
 				<div class="col mb-4 portfolio-item"><img src="images/photo-1.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/photo-2.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
 				<div class="col mb-4 portfolio-item"><img src="images/photo-3.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
@@ -269,7 +277,6 @@
 			<h3 class="text-white mb-4 mt-5">3D Work</h3>
 			
 			<div class="grid p-0 clearfix row row-cols-1 row-cols-lg-2 row-cols-xl-2 mb-4" data-aos="fade-up">
-				<!-- أضفنا loading="lazy" لليوتيوب -->
 				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/5Q-4Ee7urZA?si=Z0BB-oUPvdtTXOuY" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
 				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/2X4ltbVoMg4?si=FpJOLTGMYhrQwGjk" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
 				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/LRQKaOAt1tQ?si=jv6o5j_7kf0o7dRs" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
