@@ -22,12 +22,14 @@
 		@font-face {
 			font-family: 'EnglishFont';
 			src: url('fonts/english-font.otf') format('opentype');
+			font-display: swap; /* ميزة تسرع ظهور الخط */
 			unicode-range: U+0000-00FF; 
 		}
 
 		@font-face {
 			font-family: 'ArabicFont';
 			src: url('fonts/arabic-font.otf') format('opentype');
+			font-display: swap; /* ميزة تسرع ظهور الخط */
 			unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; 
 		}
 
@@ -92,7 +94,6 @@
 			padding: 20px;
 		}
 
-		/* الصورة وقت العرض الكامل تاخذ أبعادها الأصلية */
 		#imageModal img {
 			max-width: 85%;
 			max-height: 85vh;
@@ -122,7 +123,6 @@
 			transform: scale(1.02);
 		}
 
-		/* توحيد مقاسات الصور في الصفحة الرئيسية (مربعة ومتساوية) */
 		#portfolio .portfolio-item img.img-fluid {
 			width: 100%;
 			aspect-ratio: 1 / 1; 
@@ -224,7 +224,7 @@
 	<section id="intro" class="scrollspy-section">
 		<div class="main-slider">
 			<div class="slider-item jarallax" data-speed="0.2">
-				<img src="images/my-profile.jpg" alt="AlZubair" class="jarallax-img">
+				<img src="images/my-profile.jpg" alt="AlZubair" class="jarallax-img" loading="lazy">
 				<div class="banner-content text-white">
 					<h2 class="banner-title txt-fx">AlZubair</h2>
 					<p class="fs-4 d-none d-lg-block">Abdulrahman Zubair</p>
@@ -249,46 +249,46 @@
 			<!-- 1. قسم التصوير الفوتوغرافي (Photography) -->
 			<h3 class="text-white mb-4">Photography</h3>
 			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3 mb-5" data-aos="fade-up">
-				<div class="col mb-4 portfolio-item"><img src="images/photo-1.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-2.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-3.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-4.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-5.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-6.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-7.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-8.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-9.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-10.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-11.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-12.jpg" class="img-fluid" alt="Photography"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/photo-13.jpg" class="img-fluid" alt="Photography"></div>
+				<!-- أضفنا loading="lazy" لكل الصور -->
+				<div class="col mb-4 portfolio-item"><img src="images/photo-1.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-2.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-3.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-4.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-5.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-6.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-7.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-8.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-9.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-10.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-11.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-12.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/photo-13.jpg" class="img-fluid" alt="Photography" loading="lazy"></div>
 			</div>
 
-			<!-- 2. قسم أعمال الـ 3D (مقاطع ثم صور) -->
+			<!-- 2. قسم أعمال الـ 3D -->
 			<h3 class="text-white mb-4 mt-5">3D Work</h3>
 			
-			<!-- مقاطع الـ 3D الستة -->
 			<div class="grid p-0 clearfix row row-cols-1 row-cols-lg-2 row-cols-xl-2 mb-4" data-aos="fade-up">
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/5Q-4Ee7urZA?si=Z0BB-oUPvdtTXOuY" frameborder="0" allowfullscreen></iframe></div>
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/2X4ltbVoMg4?si=FpJOLTGMYhrQwGjk" frameborder="0" allowfullscreen></iframe></div>
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/LRQKaOAt1tQ?si=jv6o5j_7kf0o7dRs" frameborder="0" allowfullscreen></iframe></div>
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/S84V2BOaZDE?si=TZUfOSu04gdrooYh" frameborder="0" allowfullscreen></iframe></div>
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/1-xUBY-g1bg?si=MKE1_4acn78kQeTU" frameborder="0" allowfullscreen></iframe></div>
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/CF2cPa27qRA?si=_QuQfgG2sbjZfZ48" frameborder="0" allowfullscreen></iframe></div>
+				<!-- أضفنا loading="lazy" لليوتيوب -->
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/5Q-4Ee7urZA?si=Z0BB-oUPvdtTXOuY" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/2X4ltbVoMg4?si=FpJOLTGMYhrQwGjk" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/LRQKaOAt1tQ?si=jv6o5j_7kf0o7dRs" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/S84V2BOaZDE?si=TZUfOSu04gdrooYh" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/1-xUBY-g1bg?si=MKE1_4acn78kQeTU" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/CF2cPa27qRA?si=_QuQfgG2sbjZfZ48" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
 			</div>
 
-			<!-- صور الـ 3D الثلاثة -->
 			<div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-3 mb-5" data-aos="fade-up">
-				<div class="col mb-4 portfolio-item"><img src="images/3d-1.jpg" class="img-fluid" alt="3D Work"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/3d-2.jpg" class="img-fluid" alt="3D Work"></div>
-				<div class="col mb-4 portfolio-item"><img src="images/3d-3.jpg" class="img-fluid" alt="3D Work"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/3d-1.jpg" class="img-fluid" alt="3D Work" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/3d-2.jpg" class="img-fluid" alt="3D Work" loading="lazy"></div>
+				<div class="col mb-4 portfolio-item"><img src="images/3d-3.jpg" class="img-fluid" alt="3D Work" loading="lazy"></div>
 			</div>
 
 			<!-- 3. قسم الفيديوهات العادية (Videography) -->
 			<h3 class="text-white mb-4 mt-5">Videography</h3>
 			<div class="grid p-0 clearfix row row-cols-1 row-cols-lg-2 row-cols-xl-2" data-aos="fade-up">
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/SUzb5kllZYA?si=-aVB_BhgqPjPZWca" frameborder="0" allowfullscreen></iframe></div>
-				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/RHHINvm8kC4?si=WJ2p99CUwitksAkm" frameborder="0" allowfullscreen></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/SUzb5kllZYA?si=-aVB_BhgqPjPZWca" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+				<div class="col mb-4 portfolio-item"><iframe width="100%" height="315" src="https://www.youtube.com/embed/RHHINvm8kC4?si=WJ2p99CUwitksAkm" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
 			</div>
 			
 		</div>
